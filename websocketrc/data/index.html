@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boladão</title>
+</head>
+<body>
+  <h1>RPM</h1>
+  <input type="number" id="rotationInput" placeholder="defina o valor de RPM">
+  <button onclick="sendRotation()">Enviar</button>
+
+  <script>
+    var ws = new WebSocket('ws://' + window.location.hostname + '/ws');
+
+    ws.onopen = function(event) {
+      console.log('Connection opened');
+    };
+
+    ws.onmessage = function(event) {
+      console.log('Message received: ' + event.data);
+    };
+
+    function sendRotation() {
+      var rotationValue = document.getElementById('rotationInput').value;
+      ws.send(rotationValue);
+    }
+
+    ws.onclose = function(event) {
+      console.log('Connection closed');
+    };
+  </script>
+</body>
+</html>

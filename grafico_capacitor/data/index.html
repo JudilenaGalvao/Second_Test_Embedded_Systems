@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP IOT DASHBOARD - TADS UFRN EMBARCADOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+    <div class="topnav">
+        <h1>RC circuit identification - Embarcados TADS UFRN</h1>
+    </div>
+    <div style="margin-top: 3rem; margin-bottom: 3rem;">
+        <button onclick="selecionarGrafico()">Toggle</button>
+    </div>
+    <div id="card" class="content" style="position: absolute; margin-top: 5rem;">
+        <div class="card-grid">
+            <div class="card">
+                <p class="card-title"><i class="fas fa-thermometer-threequarters" style="color:#059e8a;"></i> Time</p>
+                <p class="reading"><span id="time"></span> s</p>
+            </div>
+            <div class="card">
+                <p class="card-title"> MV (input voltage)</p>
+                <p class="reading"><span id="MV"></span> V</p>
+            </div>
+            <div class="card">
+                <p class="card-title"> PV (capacitor voltage)</p>
+                <p class="reading"><span id="PV"></span> V</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="visibility: hidden;" id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
